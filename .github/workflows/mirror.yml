@@ -1,4 +1,4 @@
-name: binance-liq-discord
+name: binance-liquidations-to-discord
 
 on:
   schedule:
@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: binance-liq-discord
+  group: binance-liquidations-to-discord
   cancel-in-progress: true
 
 jobs:
