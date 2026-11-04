@@ -1,4 +1,4 @@
-name: Binance Liquidations -> Discord mirror
+name: whale-alert-to-discord
 
 on:
   schedule:
@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: binance-liquidations-to-discord
+  group: whale-alert-to-discord
   cancel-in-progress: true
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
       - name: Run mirror
         env:
           DC_WEBHOOK: ${{ secrets.DC_WEBHOOK }}
-          CHANNEL: ${{ secrets.CHANNEL || 'BinanceLiquidations' }}
+          CHANNEL: ${{ secrets.CHANNEL || 'whale_alert_io' }}
           POLL_SECONDS: "30"
         run: |
           MODE="${{ inputs.mode || 'loop' }}"
@@ -44,7 +44,7 @@ jobs:
         continue-on-error: true
         run: |
           if [ -n "$(git status --porcelain -- state.json)" ]; then
-            git config user.name "liq-mirror[bot]"
+            git config user.name "whale-mirror[bot]"
             git config user.email "actions@users.noreply.github.com"
             git add state.json
             git commit -m "mirror state [skip ci]" || true
