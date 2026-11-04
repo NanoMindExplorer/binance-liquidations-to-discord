@@ -1,9 +1,0 @@
-name: x
-on:
-  workflow_dispatch: {}
-jobs:
-  hello:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo hi-from-reindex-pr
-
