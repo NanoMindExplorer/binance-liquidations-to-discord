@@ -1,4 +1,4 @@
-name: binance-liquidations-to-discord
+name: Binance Liquidations -> Discord mirror
 
 on:
   schedule:
